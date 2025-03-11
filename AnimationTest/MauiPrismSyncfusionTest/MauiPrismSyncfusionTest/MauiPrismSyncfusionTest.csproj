@@ -1,0 +1,182 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MauiPrismSyncfusionTest</RootNamespace>
+    <UseMaui>true</UseMaui>
+    <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Display name -->
+    <ApplicationTitle>MauiPrismSyncfusionTest</ApplicationTitle>
+
+    <!-- App Identifier -->
+    <ApplicationId>com.companyname.mauiprismsyncfusiontest</ApplicationId>
+    <ApplicationIdGuid>410842be-3756-41f0-bae0-f16190f2fd32</ApplicationIdGuid>
+
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+    <DefaultLanguage>en-us</DefaultLanguage>
+    <WindowsPackageType>MSIX</WindowsPackageType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
+    <CodesignKey>Apple Development: Created via API (6V7L884VUB)</CodesignKey>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- App Icon -->
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
+
+    <!-- Splash Screen -->
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" />
+
+    <!-- Images -->
+    <MauiImage Include="Resources\Images\*" />
+
+    <!-- Custom Fonts -->
+    <MauiFont Include="Resources\Fonts\*" />
+
+    <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiFont Remove="Resources\Fonts\Fonts.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Remove="Views\Wizard\Template\Template1View.xaml" />
+    <MauiXaml Remove="Views\Wizard\Template\Template2View.xaml" />
+    <MauiXaml Remove="Views\Wizard\Template\Template3View.xaml" />
+    <MauiXaml Remove="Views\Wizard\Template\Template4View.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\PDF_Succinctly.pdf" />
+    <None Remove="Resources\Fonts\fa-brands-400.ttf" />
+    <None Remove="Resources\Fonts\fa-regular-400.ttf" />
+    <None Remove="Resources\Fonts\fa-solid-900.ttf" />
+    <None Remove="Resources\Splash\%24placeholder%24.scale-100.png" />
+    <None Remove="Resources\Splash\%24placeholder%24.scale-125.png" />
+    <None Remove="Resources\Splash\%24placeholder%24.scale-150.png" />
+    <None Remove="Resources\Splash\%24placeholder%24.scale-200.png" />
+    <None Remove="Resources\Splash\%24placeholder%24.scale-400.png" />
+    <None Remove="Resources\template1.png" />
+    <None Remove="Resources\template1_selected.png" />
+    <None Remove="Resources\template2.png" />
+    <None Remove="Resources\template2_selected.png" />
+    <None Remove="Resources\template3.png" />
+    <None Remove="Resources\template3_selected.png" />
+    <None Remove="Resources\template4.png" />
+    <None Remove="Resources\template4_selected.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Splash\$placeholder$.scale-100.png" />
+    <Content Include="Resources\Splash\$placeholder$.scale-125.png" />
+    <Content Include="Resources\Splash\$placeholder$.scale-150.png" />
+    <Content Include="Resources\Splash\$placeholder$.scale-200.png" />
+    <Content Include="Resources\Splash\$placeholder$.scale-400.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\PDF_Succinctly.pdf" />
+    <EmbeddedResource Include="Views\Wizard\Template\Template1View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Wizard\Template\Template2View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Wizard\Template\Template3View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Wizard\Template\Template4View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiImage Include="Resources\template1.png" />
+    <MauiImage Include="Resources\template1_selected.png" />
+    <MauiImage Include="Resources\template2.png" />
+    <MauiImage Include="Resources\template2_selected.png" />
+    <MauiImage Include="Resources\template3.png" />
+    <MauiImage Include="Resources\template3_selected.png" />
+    <MauiImage Include="Resources\template4.png" />
+    <MauiImage Include="Resources\template4_selected.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Maui" Version="10.0.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.22" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.22" />
+    <PackageReference Include="Prism.DryIoc.Maui" Version="9.0.537" />
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Wizard\Wizard.xaml.cs">
+      <DependentUpon>Wizard.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="Resources\Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Resources\Styles\Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\MasterDetailNavigation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Page2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Wizard\Template\SketchTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Wizard\Wizard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="Resources\Fonts\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Grid
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  Background="Coral"
+  x:Name="Template2ViewXaml">
+
+  <VerticalStackLayout>
+
+    <Label
+      HorizontalTextAlignment="Center"
+      TextColor="Black">
+      Template 2
+    </Label>
+
+    <Button
+      WidthRequest="200"
+      CornerRadius="8"
+      Text="Load Flow 1"
+      Command="{Binding LoadFlow1TemplatesButtonPressedCommand}" />
+
+    <Button
+      WidthRequest="200"
+      CornerRadius="8"
+      Text="Load Flow 2"
+      Margin="0,10,0,0"
+      Command="{Binding LoadFlow2TemplatesButtonPressedCommand}" />
+
+    <Label
+      HorizontalOptions="Center"
+      Margin="20">
+        Flow 1 loaded on startup
+    </Label>
+
+  </VerticalStackLayout>
+
+</Grid>

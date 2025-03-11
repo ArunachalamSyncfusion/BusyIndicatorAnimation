@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Notes:
+    
+    1. Naming style: [Your Name][Control Type][Style] eg. HelpButtonStyle. [Your Name] is optional.
+    2. Button Corner radius, 6 for small and 8 for large elements. 
+    
+    
+    
+    Xaml format for multi property elements:
+    1. Standard properties eg FontSize
+    2. Style
+    3. Bindings
+    
+    Example : 
+    <Editor 
+    HeightRequest="100"
+    AutoSize="TextChanges"
+    Style="{StaticResource DescriptionEntryStyle}"
+    Text="{Binding FeedbackText}"/>
+    
+    -->
+
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    >
+
+  <!--#region busyIndicator:SfBusyIndicator-->
+
+ 
+
+  <!--#endregion-->
+
+  <!--#region Border-->
+
+  <Style
+        x:Key="BusyIndicatorBorderStyle"
+        TargetType="Border">
+    <Setter
+            Property="WidthRequest"
+            Value="170" />
+    <Setter
+            Property="HeightRequest"
+            Value="170" />
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 6" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource BusyIndicatorBorderColor}" />
+  </Style>
+
+  <Style
+        x:Key="FloatingResultsBorderStyle"
+        TargetType="Border">
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 45" />
+    <Setter
+            Property="HeightRequest"
+            Value="25" />
+    <Setter
+            Property="WidthRequest"
+            Value="25" />
+    <Setter
+            Property="Opacity"
+            Value="0.2" />
+    <Setter
+            Property="Margin"
+            Value="0,0,10,5" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource SecondaryButtonColor}" />
+  </Style>
+
+  <Style
+        x:Key="LargeBorderWithoutMarginStyle"
+        TargetType="Border">
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 8" />
+    <Setter
+            Property="Padding"
+            Value="10,5,10,5" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="LargeBorderStyle"
+        TargetType="Border">
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 8" />
+    <Setter
+            Property="Margin"
+            Value="10, 10, 10, 10" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="ListViewItemBorderStyle"
+        TargetType="Border">
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 6" />
+    <Setter
+            Property="Margin"
+            Value="6,0,6,0" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource AlternateRowColor}" />
+  </Style>
+
+  <Style
+        x:Key="MediumBorderStyle"
+        TargetType="Border">
+    <Setter
+            Property="WidthRequest"
+            Value="260" />
+    <Setter
+            Property="HeightRequest"
+            Value="60" />
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 6" />
+    <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="ResultsShortcutBorderStyle"
+        TargetType="Border">
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 45" />
+    <Setter
+            Property="HeightRequest"
+            Value="70" />
+    <Setter
+            Property="WidthRequest"
+            Value="70" />
+    <Setter
+            Property="Margin"
+            Value="0,0,6,2" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource BusyIndicatorBorderColor}" />
+  </Style>
+
+  <Style
+        x:Key="ShortcutBorderStyle"
+        TargetType="Border">
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 45" />
+    <Setter
+            Property="HeightRequest"
+            Value="40" />
+    <Setter
+            Property="WidthRequest"
+            Value="40" />
+    <Setter
+            Property="Margin"
+            Value="2" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource BusyIndicatorBorderColor}" />
+  </Style>
+
+  <Style
+        x:Key="UserDetailsBorderStyle"
+        TargetType="Border">
+    <Setter
+            Property="StrokeShape"
+            Value="RoundRectangle 6" />
+    <Setter
+            Property="Padding"
+            Value="10" />
+    <Setter
+            Property="Stroke"
+            Value="{StaticResource TickBorderColor}" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource TransparentColor}" />
+  </Style>
+
+  <!--#endregion-->
+
+  <!--#endregion-->
+
+  
+  <!--#region Entry-->
+
+  <Style
+        x:Key="DescriptionEntryStyle"
+        TargetType="Entry">
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource WhiteColor}" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource BlackColor}" />
+  </Style>
+
+  <Style
+        x:Key="SaveSketchEntryStyle"
+        TargetType="Entry">
+    <Setter
+            Property="FontSize"
+            Value="14" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource WhiteColor}" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource BlackColor}" />
+  </Style>
+
+  <!--#endregion-->
+
+  <!--#region Grid-->
+
+  <Style
+        x:Key="GridEntryStyle"
+        TargetType="Entry">
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="FontSize"
+            Value="14" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource TransparentColor}" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="SketchesListViewGridStyle"
+        TargetType="Grid">
+    <Setter
+            Property="Padding"
+            Value="10" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource AlternateRowColor}" />
+  </Style>
+
+  <Style
+        x:Key="MenuPageGridStyle"
+        TargetType="Grid">
+    <Setter
+            Property="WidthRequest">
+      <OnPlatform
+                x:TypeArguments="x:Double">
+        <On
+                    Platform="Android, iOS">
+          350
+        </On>
+        <On
+                    Platform="WinUI">
+          600
+        </On>
+      </OnPlatform>
+    </Setter>
+  </Style>
+
+  <!--#endregion-->
+
+  <!--#region Label-->
+
+  <Style
+        x:Key="AssetInvestmentLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="FontSize"
+            Value="12" />
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+  </Style>
+
+  <Style
+        x:Key="GridTextColumnAgeStyle"
+        TargetType="Label">
+    <Setter
+            Property="FontSize"
+            Value="10" />
+    <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="HtmlResultsDescriptionStyle"
+        TargetType="Label">
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="Padding"
+            Value="30" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource BackgroundColor}" />
+  </Style>
+
+  <Style
+        x:Key="MediumCenterWhiteLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+    <Setter
+            Property="FontSize">
+      <OnPlatform
+                x:TypeArguments="x:Double">
+        <On
+                    Platform="Android, iOS">
+          12
+        </On>
+        <On
+                    Platform="WinUI">
+          15
+        </On>
+      </OnPlatform>
+    </Setter>
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="MediumLeftWhiteLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="HorizontalOptions"
+            Value="Start" />
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="Margin"
+            Value="10,0,0,0" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="PopUpHeaderLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="FontSize"
+            Value="18" />
+    <Setter
+            Property="Padding"
+            Value="5" />
+    <Setter
+            Property="HorizontalTextAlignment"
+            Value="Center" />
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource NavigationBarColor}" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="PopupContentLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="VerticalTextAlignment"
+            Value="Center" />
+    <Setter
+            Property="Padding"
+            Value="10" />
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="Margin"
+            Value="0,10,0,0" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="ReadMoreExpanderLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="HorizontalTextAlignment"
+            Value="Center" />
+    <Setter
+            Property="FontSize">
+      <OnPlatform
+                x:TypeArguments="x:Double">
+        <On
+                    Platform="Android, iOS">
+          12
+        </On>
+        <On
+                    Platform="WinUI">
+          13
+        </On>
+      </OnPlatform>
+    </Setter>
+    <Setter
+            Property="Background"
+            Value="{StaticResource BackgroundColor}" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource SelectorBackgroundColor}" />
+  </Style>
+
+  <Style
+        x:Key="ReadMoreExpanderTextContentLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="TextType"
+            Value="Html" />
+    <Setter
+            Property="FontSize">
+      <OnPlatform
+                x:TypeArguments="x:Double">
+        <On
+                    Platform="Android, iOS">
+          12
+        </On>
+        <On
+                    Platform="WinUI">
+          13
+        </On>
+      </OnPlatform>
+    </Setter>
+    <Setter
+            Property="Padding"
+            Value="30" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+    <Setter
+            Property="Background"
+            Value="{StaticResource BackgroundColor}" />
+  </Style>
+
+  <Style
+        x:Key="RiskSubTitleLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="Margin"
+            Value="0, 0, 0, 10" />
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="HorizontalTextAlignment"
+            Value="Center" />
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="SketchesListViewDescriptionLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="FontSize"
+            Value="12" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="SketchesListViewNameLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="ProfileSubTitleLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="HorizontalTextAlignment"
+            Value="Start" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="SketchTypeLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="Margin"
+            Value="3" />
+    <Setter
+            Property="HorizontalOptions"
+            Value="Start" />
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="FontSize"
+            Value="13" />
+    <Setter
+            Property="HorizontalTextAlignment"
+            Value="Start" />
+  </Style>
+
+  <Style
+        x:Key="SmallCenterLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource BlackColor}" />
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+  </Style>
+
+  <Style
+        x:Key="SmallStartLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="HorizontalOptions"
+            Value="Start" />
+    <Setter
+            Property="VerticalOptions"
+            Value="Start" />
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource BlackColor}" />
+  </Style>
+
+  <Style
+        x:Key="SmallCenterWhiteLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="HorizontalOptions"
+            Value="Center" />
+    <Setter
+            Property="FontSize"
+            Value="14" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="SmallTopMarginLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="Margin"
+            Value="0, 10, 0, 0" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="SubTitleLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="Margin"
+            Value="30, 0, 30, 10" />
+    <Setter
+            Property="FontSize"
+            Value="15" />
+    <Setter
+            Property="HorizontalTextAlignment"
+            Value="Center" />
+    <Setter
+            Property="VerticalOptions"
+            Value="Center" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <Style
+        x:Key="TitleLabelStyle"
+        TargetType="Label">
+    <Setter
+            Property="Margin"
+            Value="30, 15, 30, 15" />
+    <Setter
+            Property="FontSize"
+            Value="25" />
+    <Setter
+            Property="HorizontalTextAlignment"
+            Value="Center" />
+    <Setter
+            Property="TextColor"
+            Value="{StaticResource WhiteColor}" />
+  </Style>
+
+  <!--#endregion-->
+
+  <!--#endregion-->
+  
+  <!--#region VerticalStacklayout-->
+  
+  <Style
+        x:Key="TemplateStackLayoutStyle"
+        TargetType="VerticalStackLayout">
+    <Setter
+            Property="WidthRequest">
+      <OnPlatform
+                x:TypeArguments="x:Double">
+        <On
+                    Platform="Android, iOS">
+          350
+        </On>
+        <On
+                    Platform="WinUI">
+          600
+        </On>
+      </OnPlatform>
+    </Setter>
+  </Style>
+
+  <!--#endregion-->
+
+</ResourceDictionary>

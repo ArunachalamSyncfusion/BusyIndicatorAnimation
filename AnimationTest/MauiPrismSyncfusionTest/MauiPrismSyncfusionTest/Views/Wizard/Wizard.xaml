@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+  xmlns:local="clr-namespace:MauiPrismSyncfusionTest.Views"
+  Background="{StaticResource BackgroundColor}"
+  x:Class="MauiPrismSyncfusionTest.Views.Wizard.Wizard">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+
+      <DataTemplate
+        x:Key="WizardItemTemplate">
+        <ContentView
+          Content="{Binding Template}" />
+      </DataTemplate>
+
+      <DataTemplate x:Key="horizontalStackLayout">
+        <Image
+    Aspect="AspectFill"
+    Source="{Binding Image}" />
+      </DataTemplate>
+
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <NavigationPage.TitleView>
+
+    <Grid>
+      <Button
+        HorizontalOptions="End"
+        Text="Close"
+        WidthRequest="50"
+        HeightRequest="30"
+        CornerRadius="8"
+        Margin="0,0,10,0"
+        Command="{Binding CloseWizardCommand}" />
+    </Grid>
+
+  </NavigationPage.TitleView>
+
+  <Grid RowDefinitions="*,Auto">
+
+    <ScrollView Orientation="Horizontal" Grid.Row="0">
+      <HorizontalStackLayout x:Name="horizontalStack"  BindableLayout.ItemsSource="{Binding WizardTemplates, Mode=TwoWay}" IsVisible="{Binding ShowWizard}" Background="{StaticResource BackgroundColor}" BindableLayout.ItemTemplate="{StaticResource WizardItemTemplate}" ChildAdded="horizontalStack_ChildAdded">
+
+      </HorizontalStackLayout>
+    </ScrollView>
+
+    <ScrollView Orientation="Horizontal" Grid.Row="1">
+      <HorizontalStackLayout VerticalOptions="End" HeightRequest="100" BindableLayout.ItemsSource="{Binding SelectorThumbnails}" IsVisible="{Binding ShowWizard}">
+        <BindableLayout.ItemTemplate>
+          <DataTemplate>
+            <Image
+Aspect="AspectFill"
+Source="{Binding Image}" />
+          </DataTemplate>
+        </BindableLayout.ItemTemplate>
+      </HorizontalStackLayout>
+    </ScrollView>
+
+    <Border
+      Style="{StaticResource BusyIndicatorBorderStyle}"
+      IsVisible="{Binding IsBusy}">
+
+      <local:CustomBusyIndicator IsBusy="{Binding IsBusy}"/>
+
+    </Border>
+  </Grid>
+</ContentPage>

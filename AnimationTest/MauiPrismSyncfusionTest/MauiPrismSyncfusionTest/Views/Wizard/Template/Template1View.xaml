@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Grid
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  Background="LightSeaGreen"
+  x:Name="Template1ViewXaml">
+
+  <VerticalStackLayout
+    Style="{StaticResource TemplateStackLayoutStyle}">
+
+    <Label
+      HorizontalTextAlignment="Center"
+      TextColor="Black">
+      Template 1
+    </Label>
+
+
+    <ListView
+        x:Name="AdHocWithdrawalsListView"
+        ItemsSource="{Binding AdHocWithdrawals, Mode=TwoWay}">
+
+      <ListView.HeaderTemplate>
+        <DataTemplate>
+
+          <Grid
+              Background="{StaticResource NavigationBarColor}">
+
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition
+                  Width="10*" />
+              <ColumnDefinition
+                  Width="14*" />
+              <ColumnDefinition
+                  Width="24*" />
+              <ColumnDefinition
+                  Width="18*" />
+              <ColumnDefinition
+                  Width="20*" />
+              <ColumnDefinition
+                  Width="10*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Column="0"
+                Grid.Row="0"
+                Style="{StaticResource MediumCenterWhiteLabelStyle}"
+                Text="Year" />
+
+            <Label
+                Grid.Column="1"
+                Grid.Row="0"
+                Style="{StaticResource MediumCenterWhiteLabelStyle}"
+                Text="Age" />
+
+            <Label
+                Grid.Column="2"
+                Grid.Row="0"
+                Style="{StaticResource MediumCenterWhiteLabelStyle}"
+                Text="Withdrawal" />
+
+            <Label
+                Grid.Column="3"
+                Grid.Row="0"
+                Style="{StaticResource MediumCenterWhiteLabelStyle}"
+                Text="Total" />
+
+            <Label
+                Grid.Column="4"
+                Grid.Row="0"
+                Style="{StaticResource MediumCenterWhiteLabelStyle}"
+                Text="Description" />
+
+          </Grid>
+
+        </DataTemplate>
+      </ListView.HeaderTemplate>
+
+      <ListView.ItemTemplate>
+
+        <DataTemplate>
+
+          <Grid>
+
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition
+                  Width="10*" />
+              <ColumnDefinition
+                  Width="14*" />
+              <ColumnDefinition
+                  Width="24*" />
+              <ColumnDefinition
+                  Width="18*" />
+              <ColumnDefinition
+                  Width="20*" />
+              <ColumnDefinition
+                  Width="10*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Column="0"
+                Style="{StaticResource SmallCenterWhiteLabelStyle}"
+                Text="{Binding Year}" />
+
+            <Label
+                Grid.Column="1"
+                Style="{StaticResource SmallCenterWhiteLabelStyle}"
+                Text="{Binding Age}" />
+
+            <Label
+                Grid.Column="3"
+                x:Name="TotalLabel"
+                FontSize="14"
+                Style="{StaticResource SmallCenterWhiteLabelStyle}"
+                Text="{Binding TotalString}" />
+
+            <Entry
+                Grid.Column="4"
+                Text="{Binding Description, Mode=TwoWay}">
+
+            </Entry>
+
+            <Button
+                Grid.Column="5"
+                Background="{StaticResource TransparentColor}"
+                BindingContext="{Binding Path=BindingContext, Source={x:Reference AdHocWithdrawalViewXaml}}"
+                Command="{Binding DeleteAdHocWithdrawalItemCommand}"
+                CommandParameter="{Binding Source={x:Reference TotalLabel}, Path=BindingContext}">
+            </Button>
+
+          </Grid>
+
+        </DataTemplate>
+      </ListView.ItemTemplate>
+
+    </ListView>
+  </VerticalStackLayout>
+
+</Grid>

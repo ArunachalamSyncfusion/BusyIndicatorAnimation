@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Grid
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  Background="Red"
+  x:Name="Template3ViewXaml">
+
+  <VerticalStackLayout>
+
+    <Label
+      HorizontalTextAlignment="Center"
+      TextColor="Black">
+      Template 3
+    </Label>
+
+  </VerticalStackLayout>
+</Grid>

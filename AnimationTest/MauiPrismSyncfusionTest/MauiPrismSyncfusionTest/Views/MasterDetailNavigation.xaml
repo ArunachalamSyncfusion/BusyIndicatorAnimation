@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<FlyoutPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:behaviors="http://prismlibrary.com"
+            FlyoutLayoutBehavior="Popover"
+            x:Class="MauiPrismSyncfusionTest.Views.MasterDetailNavigation">
+  <FlyoutPage.Flyout>
+  
+    <ContentPage
+     Title="Menu">
+
+      <!--<ContentPage.IconImageSource>
+        --><!--<OnPlatform x:TypeArguments="ImageSource">
+          <On Platform="iOS">--><!--
+            <FontImageSource
+                     FontFamily="FontAwesomeSolidFont"
+                     Color="{StaticResource WhiteColor}"
+                     Glyph="{StaticResource HamburgerMenuIcon}" />
+          --><!--</On>
+        </OnPlatform>--><!--
+      </ContentPage.IconImageSource>-->
+
+      <Grid>
+
+        <ListView
+             Grid.Row="0"
+             Margin="0, 20, 0, 0"
+             BackgroundColor="Blue"
+             ItemsSource="{Binding MenuItems}"
+             SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}">
+
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+
+                <StackLayout
+                             VerticalOptions="FillAndExpand"
+                             Orientation="Horizontal"
+                             Padding="20,10,10,10"
+                             Spacing="20">
+
+                  <Image
+                                 HeightRequest="30"
+                                 WidthRequest="30">
+                    <Image.Source>
+                      <FontImageSource
+                                         FontFamily="FontAwesomeSolidFont"
+                                         Color="White"
+                                         Glyph="{Binding MenuIcon}" />
+                    </Image.Source>
+                  </Image>
+
+                  <Label
+                                 FontSize="20"
+                                 VerticalOptions="Center"
+                                 TextColor="White"
+                                 Text="{Binding MenuText}" />
+
+                </StackLayout>
+
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+
+        </ListView>
+
+      </Grid>
+
+    </ContentPage>
+
+  </FlyoutPage.Flyout>
+</FlyoutPage>

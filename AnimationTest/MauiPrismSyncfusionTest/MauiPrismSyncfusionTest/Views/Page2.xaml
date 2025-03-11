@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+  BackgroundColor="#243050"
+  x:Class="MauiPrismSyncfusionTest.Views.Page2">
+
+  <ContentPage.Content>
+
+    <VerticalStackLayout>
+
+      <Button
+        WidthRequest="200"
+        CornerRadius="8"
+        Margin="20"
+        Text="Save File"
+        Command="{Binding SaveCommand}" />
+
+      <Button
+        WidthRequest="200"
+        CornerRadius="8"
+        Margin="20"
+        Text="Read File"
+        Command="{Binding ReadCommand}" />
+
+      <Label
+        HorizontalOptions="Center"
+        Margin="20"
+        TextColor="White"
+        Text="{Binding LabelText}"></Label>
+
+    </VerticalStackLayout>
+
+  </ContentPage.Content>
+
+</ContentPage>

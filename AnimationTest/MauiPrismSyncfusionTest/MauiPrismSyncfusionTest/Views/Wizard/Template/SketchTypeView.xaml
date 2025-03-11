@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Grid
+  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  Background="{StaticResource BackgroundColor}"
+  x:Name="SketchTypeViewXaml">
+
+    <VerticalStackLayout
+      HorizontalOptions="Center"
+      Margin="40,0,40,0"
+      Spacing="10">
+
+      <Label
+        Text="Objective"
+        Style="{StaticResource TitleLabelStyle}" />
+
+      <Label
+        Text="What most accurately describes your financial advice requirements?"
+        Style="{StaticResource SubTitleLabelStyle}" />
+
+      <!--Solver-->
+    <Button
+        Command="{Binding TypeSelectedCommand}"
+        CommandParameter="Solver" Text="Create a savings plan.">
+      <Button.Triggers>
+
+          <DataTrigger
+            TargetType="Button"
+            Value="True"
+            Binding="{Binding SolverSelected}">
+          <Setter
+              Property="Background"
+              Value="{StaticResource WhiteColor}" />
+        </DataTrigger>
+
+          <DataTrigger
+            TargetType="Button"
+            Value="False"
+            Binding="{Binding SolverSelected}">
+          <Setter
+              Property="Background"
+              Value="{StaticResource TransparentColor}" />
+        </DataTrigger>
+
+        </Button.Triggers>
+
+    </Button>
+
+      <!--ExistingAssets-->
+    <Button
+        
+        Command="{Binding TypeSelectedCommand}"
+        CommandParameter="ExistingAssets" Text="How long will my money last, on my current savings plan?">
+
+      <Button.Triggers>
+
+          <DataTrigger
+            TargetType="Button"
+            Value="True"
+            Binding="{Binding ExistingAssetsSelected}">
+          <Setter
+              Property="Background"
+              Value="{StaticResource WhiteColor}" />
+        </DataTrigger>
+
+          <DataTrigger
+            TargetType="Button"
+            Value="False"
+            Binding="{Binding ExistingAssetsSelected}">
+          <Setter
+              Property="Background"
+              Value="{StaticResource TransparentColor}" />
+        </DataTrigger>
+
+        </Button.Triggers>
+
+      </Button>
+
+      <!--SolverWithExistingAssets-->
+    <Button
+       
+        Command="{Binding TypeSelectedCommand}"
+        CommandParameter="SolverWithExistingAssets" Text="By how much, do I need to top up my existing savings plan,&#10;to ensure my money lasts?">
+
+      <Button.Triggers>
+
+          <DataTrigger
+            TargetType="Button"
+            Value="True"
+            Binding="{Binding SolverWithExistingAssetsSelected}">
+          <Setter
+              Property="Background"
+              Value="{StaticResource WhiteColor}" />
+        </DataTrigger>
+
+          <DataTrigger
+            TargetType="Button"
+            Value="False"
+            Binding="{Binding SolverWithExistingAssetsSelected}">
+          <Setter
+              Property="Background"
+              Value="{StaticResource TransparentColor}" />
+        </DataTrigger>
+
+        </Button.Triggers>
+
+      </Button>
+
+      <!--Retirement-->
+    <Button
+       
+        Command="{Binding TypeSelectedCommand}"
+        CommandParameter="Retirement" Text="I am retired. How long will my money last?">
+
+      <Button.Triggers>
+
+          <DataTrigger
+            TargetType="Button"
+            Value="True"
+            Binding="{Binding RetirementSelected}">
+          <Setter
+              Property="Background"
+              Value="{StaticResource WhiteColor}" />
+        </DataTrigger>
+
+          <DataTrigger
+            TargetType="Button"
+            Value="False"
+            Binding="{Binding RetirementSelected}">
+          <Setter
+              Property="Background"
+              Value="{StaticResource TransparentColor}" />
+        </DataTrigger>
+
+        </Button.Triggers>
+
+      </Button>
+
+    </VerticalStackLayout>
+
+</Grid>
